@@ -1,5 +1,6 @@
 package com.example.eeva1_aracely_cifuentes;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,18 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         ve = findViewById(R.id.tve);
         he = findViewById(R.id.the);
-
-        int ver = Integer.parseInt(ve.getText().toString());
-        int hec = Integer.parseInt(he.getText().toString());
-        int sum = ver + hec;
-
-        /* ??????????? DDD,,,;
-        static int multi(int r){
-            int ver = Integer.parseInt(ve.getText().toString());
-            int hec = Integer.parseInt(he.getText().toString());
-            int sum = ver + hec;
-            return sum;
-        };*/
+        calcula = findViewById(R.id.bcalcular);
+        limpia = findViewById(R.id.blimpiar);
 
         calcula.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,8 +31,22 @@ public class MainActivity extends AppCompatActivity {
                         getApplicationContext(),
                         pantallaresultado.class
                 );
-                intent.putExtra("resultado",sum);
+                int ver = Integer.parseInt(ve.getText().toString());
+                int hec = Integer.parseInt(he.getText().toString());
+                int sum = ver * hec;
+                String sumaa = String.valueOf(sum);
+                intent.putExtra("resultado",sumaa.toString());
                 startActivity(intent);
+            }
+        });
+
+        limpia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // no c hcaer esto :ccc
+                String vacio = "";
+                ve.setText(vacio);
+                he.setText(vacio);
             }
         });
 
